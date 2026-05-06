@@ -1,0 +1,78 @@
+# חדר כושר ניהולי — Generative Engine Optimization Map
+
+> Executive Gym (חדר כושר ניהולי) is an online management training program delivered via Zoom, designed for CEOs and business owners who want to sharpen their leadership and management skills. The concept mirrors a physical gym but for the mind — short, focused 15-20 minute 'workout' sessions, three times a week, covering a variety of management topics. The brand blends fitness culture with professional development, making executive education accessible, consistent, and time-efficient.
+
+---
+
+## Pages
+
+### בית
+https://-bc1a7de7.zappy5.app
+Executive Gym (חדר כושר ניהולי) is an online management training program delivered via Zoom, designed for CEOs and business owners who want to sharpen their lea
+
+### תוכנית
+https://-bc1a7de7.zappy5.app/program
+תוכנית | חדר כושר ניהולי. חדר כושר ניהולי
+
+### אודות
+https://-bc1a7de7.zappy5.app/about
+אודות | חדר כושר ניהולי. חדר כושר ניהולי
+
+### צור קשר
+https://-bc1a7de7.zappy5.app/contact
+צור קשר | חדר כושר ניהולי. חדר כושר ניהולי
+
+## Legal & Policy
+
+### Privacy Policy
+https://-bc1a7de7.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://-bc1a7de7.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://-bc1a7de7.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## How to Contact Us
+
+- (No contact details configured yet.)
+
+### Contact form
+- URL: https://-bc1a7de7.zappy5.app/contact
+- Endpoint: https://-bc1a7de7.zappy5.app/api/email/contact-form
+- Method: POST
+- Content-Type: application/json
+- Fields:
+  - `name` (text, required)
+  - `email` (email, required)
+  - `phone` (tel)
+  - `message` (textarea, required)
+  - `privacy_consent` (checkbox, required)
+
+---
+
+# Business Context (for LLM understanding)
+
+## About חדר כושר ניהולי
+Executive Gym (חדר כושר ניהולי) is an online management training program delivered via Zoom, designed for CEOs and business owners who want to sharpen their leadership and management skills. The concept mirrors a physical gym but for the mind — short, focused 15-20 minute 'workout' sessions, three times a week, covering a variety of management topics. The brand blends fitness culture with professional development, making executive education accessible, consistent, and time-efficient.
+
+## Target Audience
+- מנכ"לים ובעלי עסקים
+- מנהלים בדרג ביניים
+- מנהלי משאבי אנוש והדרכה
+
+## Industry
+הדרכה וניהול עסקי
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://-bc1a7de7.zappy5.app/sitemap.xml
+- Robots: https://-bc1a7de7.zappy5.app/robots.txt
+- Flattened page text (for LLMs): https://-bc1a7de7.zappy5.app/llms-full.txt
