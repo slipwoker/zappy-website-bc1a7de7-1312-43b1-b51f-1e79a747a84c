@@ -318,18 +318,18 @@
         #mic-access-tool-general-button, .mic-access-tool-general-button,
         #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
         ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
-        #mic-access-tool-box, .mic-access-tool-box, #mic-init-access-tool #mic-access-tool-box,
-        div[id*="mic-access-tool-box"], ._access-menu {
-          visibility: hidden; opacity: 0; pointer-events: auto !important;
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
         }
       }
       @media (min-width: 769px) {
         #mic-access-tool-general-button, .mic-access-tool-general-button,
         #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
         ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
-        #mic-access-tool-box, .mic-access-tool-box, #mic-init-access-tool #mic-access-tool-box,
-        div[id*="mic-access-tool-box"], ._access-menu {
-          visibility: hidden; opacity: 0; pointer-events: auto !important;
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
         }
       }
     </style>
@@ -1143,14 +1143,14 @@
 
 </section>
 
-<section class="program-cta-section" data-layout-spec="תוכנית-cta" dir="rtl">
+<section class="program-cta-section" data-layout-spec="תוכנית-cta" dir="rtl" id="program-cta-section">
   <div class="program-cta-container">
     <div class="program-cta-inner">
-      <span class="program-cta-eyebrow">הצעד הבא שלך</span>
-      <h2 class="program-cta-heading">בואו נבדוק יחד אם התוכנית מתאימה לכם</h2>
-      <p class="program-cta-body">חדר כושר ניהולי מתוכנן להשתלב בלוח הזמנים של מנכ"לים ובעלי עסקים עסוקים — שלושה אימונים קצרים בשבוע, 15–20 דקות כל אחד, בזום. בשיחה קצרה נוכל להבין יחד כיצד לשלב את התוכנית בשגרת המנהיגות שלכם, ולהתחיל לבנות הרגל ניהולי שמניב תוצאות.</p>
-      <a href="/contact" class="program-cta-btn">קבעו שיחת היכרות</a>
-    </div>
+      <p><span class="program-cta-eyebrow" style="color: rgb(22, 50, 79) !important;">הצעד הבא שלך</span>
+      </p><h2 class="program-cta-heading" >הירשמו עכשיו לחדר הכושר הניהולי</h2>
+      <p class="program-cta-body" style="color: rgb(22, 50, 79) !important;">חדר כושר ניהולי מתוכנן להשתלב בלוח הזמנים של מנכ"לים ובעלי עסקים עסוקים — שלושה אימונים קצרים בשבוע, 15–20 דקות כל אחד, בזום. בשיחה קצרה נוכל להבין יחד כיצד לשלב את התוכנית בשגרת המנהיגות שלכם, ולהתחיל לבנות הרגל ניהולי שמניב תוצאות.</p>
+      <p><a href="/contact" class="program-cta-btn" data-element-type="button" data-element-id="btn-1778776329202-b0xamgi9l" data-native-element="true">קבעו שיחת היכרות</a>
+    </p></div>
   </div>
 </section>
   </main>
