@@ -2472,101 +2472,172 @@ window.onload = function() {
 /* ZAPPY_RUNTIME_CONTRAST_FIX */
 (function(){
   try {
-    if (window.__zappyContrastFixInit) return;
-    window.__zappyContrastFixInit = true;
+/**
+ * Shared runtime contrast-fix IIFE body.
+ *
+ * This file is the SINGLE SOURCE OF TRUTH for the client-side WCAG contrast
+ * fixer that runs on both preview (02-navigation.js) and published sites
+ * (githubService.js → ensureRuntimeContrastFix). Any fix applied here
+ * automatically propagates to both surfaces.
+ *
+ * IMPORTANT: This file is read as a string template by Node, NOT executed
+ * directly. It contains raw browser-side JavaScript (ES5-compat, no require,
+ * no import). The consumers wrap it in an IIFE and append their own trigger
+ * (preview: setTimeout; publish: DOMContentLoaded).
+ *
+ * To add/change the contrast logic, edit THIS file and run:
+ *   node server/tests/sectionBackgroundTextColorSync.test.js
+ * The test pins that both consumers include the shared code.
+ */
 
-    function getLum(r,g,b){
-      var a=[r,g,b].map(function(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});
-      return a[0]*0.2126+a[1]*0.7152+a[2]*0.0722;
-    }
-    function contrast(c1,c2){
-      var l1=getLum(c1.r,c1.g,c1.b),l2=getLum(c2.r,c2.g,c2.b);
-      var hi=Math.max(l1,l2),lo=Math.min(l1,l2);
-      return (hi+0.05)/(lo+0.05);
-    }
-    function parseRGB(c){
-      if(!c)return null;var m=c.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-      return m?{r:+m[1],g:+m[2],b:+m[3]}:null;
-    }
-    function effectiveBg(el){
-      var e=el;
-      while(e){
-        var cs=window.getComputedStyle(e);
-        var bi=cs.backgroundImage;
-        if(bi&&bi!=='none'){
-          if(bi.indexOf('url(')>=0) return null;
-          var isRgba=bi.match(/rgba\(/);
-          if(!isRgba){
-            var gm=bi.match(/rgb\(\s*(\d+),\s*(\d+),\s*(\d+)/);
-            if(gm) return 'rgb('+gm[1]+','+gm[2]+','+gm[3]+')';
-          }
-        }
-        var bg=cs.backgroundColor;
-        if(bg&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent'){
-          var am=bg.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*([\d.]+)/);
-          if(!am||parseFloat(am[1])>=0.6) return bg;
-        }
-        e=e.parentElement;
-      }
-      return 'rgb(255,255,255)';
-    }
+if (window.__zappyContrastFixInit) return;
+window.__zappyContrastFixInit = true;
 
-    function resolveVar(val){
-      if(!val||val.indexOf('var(')===-1)return val;
-      var m=val.match(/var\(--([^,)]+)/);
-      if(!m)return val;
-      return getComputedStyle(document.documentElement).getPropertyValue('--'+m[1]).trim()||val;
+function getLum(r,g,b){
+  var a=[r,g,b].map(function(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});
+  return a[0]*0.2126+a[1]*0.7152+a[2]*0.0722;
+}
+function contrastRatio(c1,c2){
+  var l1=getLum(c1.r,c1.g,c1.b),l2=getLum(c2.r,c2.g,c2.b);
+  return (Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05);
+}
+function parseRGB(c){
+  if(!c)return null;var m=c.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+  return m?{r:+m[1],g:+m[2],b:+m[3]}:null;
+}
+function effectiveBg(el){
+  var e=el;
+  while(e){
+    var cs=window.getComputedStyle(e);
+    var bi=cs.backgroundImage;
+    if(bi&&bi!=='none'){
+      if(bi.indexOf('url(')>=0) return null;
+      var isRgba=bi.match(/rgba\(/);
+      if(!isRgba){
+        var gm=bi.match(/rgb\(\s*(\d+),\s*(\d+),\s*(\d+)/);
+        if(gm) return 'rgb('+gm[1]+','+gm[2]+','+gm[3]+')';
+      }
     }
-
-    function fixContrast(){
-      var root=getComputedStyle(document.documentElement);
-      var dark=root.getPropertyValue('--text-dark').trim()||root.getPropertyValue('--text').trim()||'#1a1a1a';
-      var light=root.getPropertyValue('--text-light').trim()||root.getPropertyValue('--background').trim()||'#ffffff';
-      var darkRGB=parseRGB(dark);
-      if(!darkRGB){
-        var d=document.createElement('div');d.style.color=dark;document.body.appendChild(d);
-        darkRGB=parseRGB(getComputedStyle(d).color);d.remove();
-      }
-      var lightRGB=parseRGB(light);
-      if(!lightRGB){
-        var d2=document.createElement('div');d2.style.color=light;document.body.appendChild(d2);
-        lightRGB=parseRGB(getComputedStyle(d2).color);d2.remove();
-      }
-      if(!darkRGB)darkRGB={r:26,g:26,b:26};
-      if(!lightRGB)lightRGB={r:255,g:255,b:255};
-
-      var mainEl=document.querySelector('main')||document.body;
-      var els=mainEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,span,a,button,li,label,td,th,dt,dd,figcaption');
-      var fixed=0;
-      for(var i=0;i<els.length;i++){
-        var el=els[i];
-        if(el.closest('nav,header,.zappy-header,footer,.zappy-footer'))continue;
-        var txt=el.textContent?el.textContent.trim():'';
-        if(!txt)continue;
-        var r=el.getBoundingClientRect();
-        if(r.width===0||r.height===0)continue;
-        var cs=getComputedStyle(el);
-        var col=resolveVar(cs.color);
-        var bg=effectiveBg(el);
-        var cRGB=parseRGB(col),bRGB=parseRGB(bg);
-        if(!cRGB||!bRGB)continue;
-        var ratio=contrast(cRGB,bRGB);
-        if(ratio<4.5){
-          var darkC=contrast(darkRGB,bRGB);
-          var lightC=contrast(lightRGB,bRGB);
-          var best=darkC>=lightC?dark:light;
-          var bestRatio=Math.max(darkC,lightC);
-          if(bestRatio<4.5){
-            var blackC=contrast({r:0,g:0,b:0},bRGB);
-            var whiteC=contrast({r:255,g:255,b:255},bRGB);
-            best=blackC>=whiteC?'#000000':'#ffffff';
-          }
-          el.style.setProperty('color',best,'important');
-          fixed++;
-        }
-      }
-      if(fixed>0)console.log('[Contrast Fix] Fixed '+fixed+' low-contrast elements');
+    var bg=cs.backgroundColor;
+    if(bg&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent'){
+      var am=bg.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*([\d.]+)/);
+      if(!am||parseFloat(am[1])>=0.6) return bg;
     }
+    e=e.parentElement;
+  }
+  return 'rgb(255,255,255)';
+}
+
+function isElementVisible(el,stopAt){
+  var n=el;
+  while(n&&n!==stopAt&&n!==document.body){
+    var s=window.getComputedStyle(n);
+    if(s.display==='none'||s.visibility==='hidden') return false;
+    if(parseFloat(s.opacity||'1')<=0.1) return false;
+    n=n.parentElement;
+  }
+  return true;
+}
+
+function hasImageOrVideoBackground(el){
+  var e=el;
+  while(e&&e!==document.body){
+    if(e.getAttribute){
+      var bgType=e.getAttribute('data-zappy-bg-type');
+      if(bgType==='image'||bgType==='video') return true;
+    }
+    var cs=window.getComputedStyle(e);
+    var bi=cs.backgroundImage;
+    if(bi&&bi.indexOf('url(')>=0) return true;
+    e=e.parentElement;
+  }
+  var section=el.closest&&el.closest(
+    'section,article,[data-zappy-section],[data-zappy-component],[class*="hero"],[class*="section"]'
+  );
+  if(section){
+    var bgChild=section.querySelector(
+      'img[data-hero-bg],.zappy-section-video-bg,.zappy-section-video,'+
+      'img[class*="hero-bg"],img[class*="bg-image"],img[class*="background-image"],'+
+      'video[class*="bg"],video[autoplay][loop]'
+    );
+    if(bgChild&&isElementVisible(bgChild,section)){
+      return true;
+    }
+  }
+  return false;
+}
+
+function resolveVar(val){
+  if(!val||val.indexOf('var(')===-1)return val;
+  var m=val.match(/var\(--([^,)]+)/);
+  if(!m)return val;
+  return getComputedStyle(document.documentElement).getPropertyValue('--'+m[1]).trim()||val;
+}
+
+function isDecorativeAccentText(el){
+  if(!el||!el.matches)return false;
+  if(el.matches('.font-accent,.hero-logotype,.hero-logotype-line,[class*="script"],[class*="accent-line"],[class*="subheadline"]'))return true;
+  if(el.closest('.font-accent,.hero-logotype,.hero-logotype-line,[class*="script"],[class*="accent-line"],[class*="subheadline"]'))return true;
+  if(el.matches('.display-xl,.display-1,.display-2,[class*="hero-word"],[class*="hero-pizza"],[class*="hero-anywhere"],[class*="pizza-word"],[class*="anywhere-word"],[class*="headline-pizza"],[class*="headline-anywhere"],[class*="headline-on-the"],[class*="headline-move"],[class*="logotype"],[class*="wordmark"]'))return true;
+  if(el.closest('[class*="hero-word"],[class*="hero-pizza"],[class*="hero-anywhere"],[class*="pizza-word"],[class*="anywhere-word"],[class*="headline-pizza"],[class*="headline-anywhere"],[class*="headline-on-the"],[class*="headline-move"],[class*="logotype"],[class*="wordmark"]'))return true;
+  if(el.closest('h1.display-xl,h2.display-xl,h1.display-1,h2.display-1,h1.display-2,h2.display-2'))return true;
+  return false;
+}
+
+function fixContrast(){
+  var root=getComputedStyle(document.documentElement);
+  var dark=root.getPropertyValue('--text-dark').trim()||root.getPropertyValue('--text').trim()||'#1a1a1a';
+  var light=root.getPropertyValue('--text-light').trim()||root.getPropertyValue('--background').trim()||'#ffffff';
+  var darkRGB=parseRGB(dark);
+  if(!darkRGB){
+    var d=document.createElement('div');d.style.color=dark;document.body.appendChild(d);
+    darkRGB=parseRGB(getComputedStyle(d).color);d.remove();
+  }
+  var lightRGB=parseRGB(light);
+  if(!lightRGB){
+    var d2=document.createElement('div');d2.style.color=light;document.body.appendChild(d2);
+    lightRGB=parseRGB(getComputedStyle(d2).color);d2.remove();
+  }
+  if(!darkRGB)darkRGB={r:26,g:26,b:26};
+  if(!lightRGB)lightRGB={r:255,g:255,b:255};
+
+  var mainEl=document.querySelector('main')||document.body;
+  var els=mainEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,span,a,button,li,label,td,th,dt,dd,figcaption');
+  var fixed=0;
+  for(var i=0;i<els.length;i++){
+    var el=els[i];
+    if(el.closest('nav,header,.zappy-header,footer,.zappy-footer'))continue;
+    if(isDecorativeAccentText(el))continue;
+    if(hasImageOrVideoBackground(el))continue;
+    var inlineStyle=el.getAttribute('style')||'';
+    if(/(?:^|;\s*)color\s*:/i.test(inlineStyle))continue;
+    if(el.tagName==='FONT'&&el.hasAttribute('color'))continue;
+    var txt=el.textContent?el.textContent.trim():'';
+    if(!txt)continue;
+    var r=el.getBoundingClientRect();
+    if(r.width===0||r.height===0)continue;
+    var cs=getComputedStyle(el);
+    var col=resolveVar(cs.color);
+    var bg=effectiveBg(el);
+    var cRGB=parseRGB(col),bRGB=parseRGB(bg);
+    if(!cRGB||!bRGB)continue;
+    var ratio=contrastRatio(cRGB,bRGB);
+    if(ratio<4.5){
+      var darkC=contrastRatio(darkRGB,bRGB);
+      var lightC=contrastRatio(lightRGB,bRGB);
+      var best=darkC>=lightC?dark:light;
+      var bestRatio=Math.max(darkC,lightC);
+      if(bestRatio<4.5){
+        var blackC=contrastRatio({r:0,g:0,b:0},bRGB);
+        var whiteC=contrastRatio({r:255,g:255,b:255},bRGB);
+        best=blackC>=whiteC?'#000000':'#ffffff';
+      }
+      el.style.setProperty('color',best,'important');
+      fixed++;
+    }
+  }
+  if(fixed>0)console.log('[Contrast Fix] Fixed '+fixed+' low-contrast elements');
+}
 
     if(document.readyState==='loading'){
       document.addEventListener('DOMContentLoaded',fixContrast,{once:true});
@@ -3310,8 +3381,19 @@ window.onload = function() {
     }
     
     function _isOOS(v) {
-      return v.stock_status === 'out_of_stock' ||
-        (v.stock_quantity !== null && v.stock_quantity !== undefined && v.stock_quantity <= 0);
+      if (!v) return true;
+      if (v.stock_status === 'out_of_stock') return true;
+      var i = v.inventory_quantity != null ? v.inventory_quantity : v.inventoryQuantity;
+      if (i != null && i !== '') {
+        var n = parseFloat(i);
+        if (isFinite(n)) return n <= 0;
+      }
+      var s = v.stock_quantity;
+      if (s != null && s !== '') {
+        var m = parseFloat(s);
+        if (isFinite(m)) return m <= 0;
+      }
+      return false;
     }
     
     function _updateVisuals() {
@@ -3330,9 +3412,11 @@ window.onload = function() {
         btn.disabled = false;
         if (matching.length === 0) {
           btn.classList.add('disabled');
+          btn.disabled = true;
         } else if (matching.every(function(v) { return _isOOS(v); })) {
           btn.classList.add('disabled');
           btn.classList.add('out-of-stock');
+          btn.disabled = true;
         }
       });
     }
@@ -3482,6 +3566,7 @@ window.onload = function() {
       var ak = btn.getAttribute('data-attr');
       var av = btn.getAttribute('data-value');
       if (!ak || !av) return;
+      if (btn.disabled || btn.classList.contains('disabled')) return;
       
       // If already selected, do nothing (no manual deselect)
       if (selectedAttributes[ak] === av) {
@@ -4281,10 +4366,10 @@ window.onload = function() {
 })();
 
 
-/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V7 */
+/* ZAPPY_ECOM_LANGUAGE_ROUTING_RUNTIME_V16 */
 (function() {
-  if (window.__zappyEcomLanguageRoutingRuntime) return;
-  window.__zappyEcomLanguageRoutingRuntime = true;
+  if (window.__zappyEcomLanguageRoutingRuntime >= 16) return;
+  window.__zappyEcomLanguageRoutingRuntime = 16;
 
   // Routing strategy: use path-based language URLs for ALL storefront pages
   // (including dynamic /product/:slug and /category/:slug). The publish
@@ -4474,9 +4559,8 @@ window.onload = function() {
     dropdowns.forEach(function(li) {
       if (!li || !li.querySelector) return;
       var submenu = li.querySelector(':scope > .sub-menu');
-      var trigger = li.querySelector(':scope > a');
+      var trigger = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
       if (!submenu || !trigger) return;
-      if (li.querySelector(':scope > .mobile-submenu-toggle')) return;
 
       // Hide the inline SVG chevron on mobile so we don't render two chevrons.
       var inlineArrow = trigger.querySelector('svg.dropdown-arrow');
@@ -4485,12 +4569,19 @@ window.onload = function() {
         inlineArrow.setAttribute('data-zappy-mobile-hidden', '1');
       }
 
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'mobile-submenu-toggle';
-      btn.setAttribute('aria-label', 'Toggle submenu');
-      btn.setAttribute('aria-expanded', 'false');
+      var btn = li.querySelector(':scope > .mobile-submenu-toggle');
+      if (!btn) {
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'mobile-submenu-toggle';
+        btn.setAttribute('aria-label', 'Toggle submenu');
+        trigger.insertAdjacentElement('afterend', btn);
+      }
+      btn.setAttribute('aria-expanded', submenu.classList.contains('mobile-expanded') ? 'true' : 'false');
       btn.setAttribute('data-zappy-runtime', 'ecom-routing');
+
+      if (btn.getAttribute('data-zappy-runtime-bound') === '1') return;
+      btn.setAttribute('data-zappy-runtime-bound', '1');
 
       btn.addEventListener('click', function(e) {
         e.preventDefault();
@@ -4512,10 +4603,154 @@ window.onload = function() {
         submenu.classList.toggle('mobile-expanded', willOpen);
         btn.classList.toggle('expanded', willOpen);
         btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        normalizeMobileSubmenuLayout();
       }, true);
-
-      trigger.insertAdjacentElement('afterend', btn);
     });
+    normalizeMobileSubmenuLayout();
+  }
+
+  function setImportant(el, prop, value) {
+    if (!el || !el.style || !el.style.setProperty) return;
+    el.style.setProperty(prop, value, 'important');
+  }
+
+  function normalizeMobileSubmenuLayout() {
+    var isMobile = window.matchMedia ? window.matchMedia('(max-width: 768px)').matches : window.innerWidth <= 768;
+    if (!isMobile) return;
+    var isRtl = (document.documentElement.getAttribute('dir') || document.body.getAttribute('dir')) === 'rtl';
+    document.querySelectorAll('.nav-menu li:has(> .sub-menu), nav li:has(> .sub-menu), .navbar li:has(> .sub-menu)').forEach(function(li) {
+      var submenu = li.querySelector(':scope > .sub-menu');
+      var trigger = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
+      var btn = li.querySelector(':scope > .mobile-submenu-toggle');
+      if (!submenu || !trigger || !btn) return;
+
+      // Keep the layout direction LTR even on RTL pages. Flexbox otherwise
+      // places the full-width submenu from the right edge and clips it outside
+      // the mobile drawer; text direction is restored on the children below.
+      setImportant(li, 'direction', 'ltr');
+      setImportant(li, 'display', 'flex');
+      setImportant(li, 'flex-wrap', 'wrap');
+      setImportant(li, 'align-items', 'flex-start');
+      setImportant(li, 'width', '100%');
+      setImportant(li, 'max-width', '100%');
+      setImportant(li, 'min-width', '0');
+      setImportant(li, 'overflow', 'visible');
+      setImportant(li, 'box-sizing', 'border-box');
+
+      setImportant(trigger, 'display', 'block');
+      setImportant(trigger, 'direction', isRtl ? 'rtl' : 'ltr');
+      setImportant(trigger, 'flex', '1 1 0');
+      setImportant(trigger, 'min-width', '0');
+      setImportant(trigger, 'max-width', 'calc(100% - 48px)');
+      setImportant(trigger, 'width', 'auto');
+      setImportant(trigger, 'box-sizing', 'border-box');
+      setImportant(trigger, 'white-space', 'normal');
+      setImportant(trigger, 'overflow-wrap', 'anywhere');
+      setImportant(trigger, 'padding-inline', '8px');
+      setImportant(trigger, 'text-align', isRtl ? 'right' : 'left');
+      setImportant(trigger, 'order', isRtl ? '2' : '1');
+
+      setImportant(btn, 'display', 'flex');
+      setImportant(btn, 'position', 'static');
+      setImportant(btn, 'flex', '0 0 48px');
+      setImportant(btn, 'width', '48px');
+      setImportant(btn, 'height', '44px');
+      setImportant(btn, 'min-height', '44px');
+      setImportant(btn, 'align-items', 'center');
+      setImportant(btn, 'justify-content', 'center');
+      setImportant(btn, 'margin', '0');
+      setImportant(btn, 'padding', '0');
+      setImportant(btn, 'background', 'transparent');
+      setImportant(btn, 'border', 'none');
+      setImportant(btn, 'order', isRtl ? '1' : '2');
+
+      setImportant(submenu, 'order', '3');
+      setImportant(submenu, 'direction', isRtl ? 'rtl' : 'ltr');
+      setImportant(submenu, 'text-align', isRtl ? 'right' : 'left');
+      setImportant(submenu, 'flex', '0 0 100%');
+      setImportant(submenu, 'width', '100%');
+      setImportant(submenu, 'min-width', '0');
+      setImportant(submenu, 'max-width', '100%');
+      setImportant(submenu, 'box-sizing', 'border-box');
+      setImportant(submenu, 'margin', '0');
+      setImportant(submenu, 'transform', 'none');
+      setImportant(submenu, 'left', 'auto');
+      setImportant(submenu, 'right', 'auto');
+      setImportant(submenu, 'inset-inline-start', 'auto');
+      setImportant(submenu, 'inset-inline-end', 'auto');
+      if (submenu.classList.contains('mobile-expanded')) {
+        setImportant(submenu, 'padding', '8px 0');
+      }
+
+      submenu.querySelectorAll('a, .menu-group-title').forEach(function(item) {
+        var parentItem = item.closest && item.closest('li');
+        setImportant(item, 'display', 'block');
+        setImportant(item, 'direction', isRtl ? 'rtl' : 'ltr');
+        setImportant(item, 'width', '100%');
+        setImportant(item, 'min-width', '0');
+        setImportant(item, 'max-width', '100%');
+        setImportant(item, 'box-sizing', 'border-box');
+        setImportant(item, 'white-space', 'normal');
+        setImportant(item, 'overflow-wrap', 'anywhere');
+        setImportant(item, 'padding', '10px 8px');
+        setImportant(item, 'text-align', isRtl ? 'right' : 'left');
+        if (parentItem && parentItem.classList && parentItem.classList.contains('zappy-nav-parent')) {
+          setImportant(item, 'font-weight', '700');
+        }
+        if (parentItem && parentItem.classList && parentItem.classList.contains('zappy-nav-child')) {
+          setImportant(item, 'padding-left', isRtl ? '16px' : '36px');
+          setImportant(item, 'padding-right', isRtl ? '36px' : '16px');
+          setImportant(item, 'font-size', '0.94em');
+          setImportant(item, 'opacity', '0.85');
+        }
+      });
+    });
+  }
+
+  function scheduleMobileSubmenuRefresh() {
+    [0, 60, 160, 320, 700, 1200, 2200].forEach(function(delay) {
+      setTimeout(function() {
+        ensureMobileSubmenuToggles();
+        normalizeMobileSubmenuLayout();
+      }, delay);
+    });
+  }
+
+  function installMobileMenuRefreshHooks() {
+    if (window.__zappyMobileSubmenuRefreshHooksInstalled) return;
+    window.__zappyMobileSubmenuRefreshHooksInstalled = true;
+
+    document.addEventListener('click', function(e) {
+      var target = e.target && e.target.closest && e.target.closest(
+        '.mobile-toggle,.menu-toggle,.hamburger,.navbar-toggle,.mobile-submenu-toggle,[aria-label="תפריט"],[aria-label="Menu"],[aria-label="menu"]'
+      );
+      if (target) scheduleMobileSubmenuRefresh();
+    }, true);
+
+    if (!window.MutationObserver) return;
+    var observeNav = function() {
+      var nav = document.getElementById('navMenu') || document.querySelector('.nav-menu');
+      if (!nav || nav.getAttribute('data-zappy-mobile-submenu-observed') === '1') return;
+      nav.setAttribute('data-zappy-mobile-submenu-observed', '1');
+      var handleMutations = function(mutations) {
+        var shouldRefresh = mutations.some(function(mutation) {
+          if (mutation.type === 'attributes') return mutation.attributeName === 'class' || mutation.attributeName === 'style';
+          return Array.prototype.some.call(mutation.addedNodes || [], function(node) {
+            return node.nodeType === 1 && (
+              node.classList && node.classList.contains('mobile-submenu-toggle')
+              || node.querySelector && node.querySelector('.mobile-submenu-toggle')
+            );
+          });
+        });
+        if (shouldRefresh) scheduleMobileSubmenuRefresh();
+      };
+      var navObserver = new MutationObserver(handleMutations);
+      navObserver.observe(nav, { attributes: true, attributeFilter: ['class', 'style'], childList: true });
+      var childObserver = new MutationObserver(handleMutations);
+      childObserver.observe(nav, { childList: true, subtree: true });
+    };
+    observeNav();
+    setTimeout(observeNav, 500);
   }
 
   var __zappyMobileSubmenuResizeTimer = null;
@@ -4540,16 +4775,26 @@ window.onload = function() {
   // a separate CSS ensure step makes us robust to clean-css comment stripping +
   // declaration merging that was eating the standalone CSS injection.
   function ensureRuntimeCssInjected() {
-    if (document.getElementById('zappy-ecom-routing-runtime-css')) return;
+    var existing = document.getElementById('zappy-ecom-routing-runtime-css');
+    if (existing && existing.getAttribute('data-v') === '20') return;
+    if (existing) existing.remove();
     var style = document.createElement('style');
     style.id = 'zappy-ecom-routing-runtime-css';
     style.setAttribute('data-zappy-runtime', 'ecom-routing');
+    style.setAttribute('data-v', '20');
     style.textContent =
       '@media (min-width: 769px){' +
-        'html[dir="ltr"] .nav-container > .nav-brand,body[dir="ltr"] .nav-container > .nav-brand{order:-1!important}' +
-        'html[dir="ltr"] .nav-container > .nav-menu,body[dir="ltr"] .nav-container > .nav-menu{order:1!important;margin-inline-start:0!important;margin-inline-end:24px!important;flex:0 1 auto!important}' +
-        'html[dir="ltr"] .nav-container > .lang-switcher,body[dir="ltr"] .nav-container > .lang-switcher,html[dir="ltr"] .nav-container > .nav-ecommerce-icons,body[dir="ltr"] .nav-container > .nav-ecommerce-icons{order:2!important}' +
-        'html[dir="ltr"] .nav-container > .nav-ecommerce-icons.nav-icons-left,body[dir="ltr"] .nav-container > .nav-ecommerce-icons.nav-icons-left{margin-inline-start:auto!important}' +
+        'html[dir="ltr"] .nav-container > .nav-brand,body[dir="ltr"] .nav-container > .nav-brand,html[dir="ltr"] .nav-right-group > .nav-brand,body[dir="ltr"] .nav-right-group > .nav-brand{order:-1!important}' +
+        'html[dir="ltr"] .nav-container > .nav-menu,body[dir="ltr"] .nav-container > .nav-menu,html[dir="ltr"] .nav-right-group > .nav-menu,body[dir="ltr"] .nav-right-group > .nav-menu{order:1!important;margin-inline-start:0!important;margin-inline-end:24px!important;flex:1 1 0!important;min-width:0!important;max-height:44px!important;overflow:visible!important;flex-wrap:wrap!important;align-items:center!important;align-content:flex-start!important;row-gap:4px!important}' +
+        'html[dir="ltr"] .nav-container > .nav-menu > li,body[dir="ltr"] .nav-container > .nav-menu > li,html[dir="ltr"] .nav-right-group > .nav-menu > li,body[dir="ltr"] .nav-right-group > .nav-menu > li{flex:0 0 auto!important}' +
+        'html[dir="ltr"] .nav-container > .lang-switcher,body[dir="ltr"] .nav-container > .lang-switcher,html[dir="ltr"] .nav-container > .nav-ecommerce-icons,body[dir="ltr"] .nav-container > .nav-ecommerce-icons,html[dir="ltr"] .nav-right-group > .lang-switcher,body[dir="ltr"] .nav-right-group > .lang-switcher,html[dir="ltr"] .nav-right-group > .nav-ecommerce-icons,body[dir="ltr"] .nav-right-group > .nav-ecommerce-icons{order:2!important;flex:0 0 auto!important;min-width:max-content!important}' +
+        'html[dir="ltr"] .nav-container > .nav-ecommerce-icons.nav-icons-left,body[dir="ltr"] .nav-container > .nav-ecommerce-icons.nav-icons-left,html[dir="ltr"] .nav-right-group > .nav-ecommerce-icons.nav-icons-left,body[dir="ltr"] .nav-right-group > .nav-ecommerce-icons.nav-icons-left{margin-inline-start:auto!important;flex:0 0 auto!important;min-width:max-content!important}' +
+        'html[dir="rtl"] .nav-container > .nav-menu,body[dir="rtl"] .nav-container > .nav-menu,html[dir="rtl"] .nav-right-group > .nav-menu,body[dir="rtl"] .nav-right-group > .nav-menu{flex:1 1 0!important;min-width:0!important;max-height:44px!important;overflow:visible!important;flex-wrap:wrap!important;align-items:center!important;align-content:flex-start!important;row-gap:4px!important}' +
+        'html[dir="rtl"] .nav-container > .nav-menu > li,body[dir="rtl"] .nav-container > .nav-menu > li,html[dir="rtl"] .nav-right-group > .nav-menu > li,body[dir="rtl"] .nav-right-group > .nav-menu > li{flex:0 0 auto!important}' +
+        'html[dir="rtl"] .nav-container > .nav-ecommerce-icons,body[dir="rtl"] .nav-container > .nav-ecommerce-icons,html[dir="rtl"] .nav-right-group > .nav-ecommerce-icons,body[dir="rtl"] .nav-right-group > .nav-ecommerce-icons,html[dir="rtl"] .nav-container > .nav-ecommerce-icons.nav-icons-left,body[dir="rtl"] .nav-container > .nav-ecommerce-icons.nav-icons-left,html[dir="rtl"] .nav-right-group > .nav-ecommerce-icons.nav-icons-left,body[dir="rtl"] .nav-right-group > .nav-ecommerce-icons.nav-icons-left{flex:0 0 auto!important;min-width:max-content!important}' +
+        'html[dir="ltr"] .nav-search-btn,body[dir="ltr"] .nav-search-btn{position:absolute!important;left:auto!important;right:4px!important}' +
+        'html[dir="ltr"] .nav-search-input,body[dir="ltr"] .nav-search-input,html[dir="ltr"] .nav-search-box input,body[dir="ltr"] .nav-search-box input{direction:ltr!important;text-align:left!important;padding-left:14px!important;padding-right:40px!important}' +
+        '.nav-right-group>.nav-menu,.nav-container>.nav-menu{min-width:0!important;flex-shrink:1!important}' +
         'html[dir="ltr"] .zappy-products-dropdown > a .dropdown-arrow,body[dir="ltr"] .zappy-products-dropdown > a .dropdown-arrow{display:inline-block!important;flex:0 0 auto!important;margin-inline-start:6px!important}' +
         'html[dir="ltr"] .zappy-catalog-menu,html[dir="ltr"] .zappy-catalog-menu .catalog-menu-container,html[dir="ltr"] .zappy-catalog-menu .catalog-menu-categories{direction:ltr!important}' +
         'html[dir="ltr"] .zappy-catalog-menu .catalog-menu-container{align-items:flex-start!important}' +
@@ -4560,19 +4805,24 @@ window.onload = function() {
         '.nav-menu .zappy-products-dropdown:hover>.sub-menu,#navMenu .zappy-products-dropdown:hover>.sub-menu,.nav-menu .zappy-products-dropdown:focus-within>.sub-menu,#navMenu .zappy-products-dropdown:focus-within>.sub-menu{transform:translateX(-50%) translateY(0)!important}' +
       '}' +
       '@media (max-width:768px){' +
-        '.navbar .zappy-products-dropdown,nav.navbar .zappy-products-dropdown,.zappy-products-dropdown{position:relative!important}' +
-        // padding-inline-end is a logical property: it resolves to right padding
-        // in LTR and left padding in RTL — exactly the side where the absolute
-        // toggle button lives. A separate RTL override would invert that and
-        // push the link text inward, which is the indentation bug we hit.
-        '.navbar .zappy-products-dropdown > a,nav.navbar .zappy-products-dropdown > a,.zappy-products-dropdown > a{width:100%!important;min-width:0!important;padding-inline-end:56px!important;padding-inline-start:0!important;box-sizing:border-box!important}' +
-        '.navbar .zappy-products-dropdown > .mobile-submenu-toggle,nav.navbar .zappy-products-dropdown > .mobile-submenu-toggle,.zappy-products-dropdown > .mobile-submenu-toggle{display:flex!important;position:absolute!important;top:0!important;inset-inline-end:4px!important;inset-inline-start:auto!important;width:48px!important;height:44px!important;min-height:44px!important;align-items:center!important;justify-content:center!important;z-index:5!important;pointer-events:auto!important;margin:0!important;padding:0!important;background:transparent!important;border:none!important}' +
+        '.nav-menu li:has(.sub-menu),.navbar li:has(.sub-menu),nav li:has(.sub-menu){direction:ltr!important;display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;max-width:100%!important;width:100%!important;overflow:visible!important;box-sizing:border-box!important}' +
+        '.nav-menu li:has(.sub-menu)>a,.navbar li:has(.sub-menu)>a,nav li:has(.sub-menu)>a,li:has(.sub-menu)>.menu-group-title{display:block!important;flex:1 1 0!important;order:1!important;width:auto!important;min-width:0!important;max-width:calc(100% - 48px)!important;padding-inline:8px!important;box-sizing:border-box!important;white-space:normal!important;overflow-wrap:anywhere!important;line-height:1.35!important;text-align:left!important;direction:ltr!important}' +
+        'html[dir="rtl"] .nav-menu li:has(.sub-menu)>a,body[dir="rtl"] .nav-menu li:has(.sub-menu)>a,html[dir="rtl"] .navbar li:has(.sub-menu)>a,body[dir="rtl"] .navbar li:has(.sub-menu)>a,html[dir="rtl"] nav li:has(.sub-menu)>a,body[dir="rtl"] nav li:has(.sub-menu)>a,html[dir="rtl"] li:has(.sub-menu)>.menu-group-title,body[dir="rtl"] li:has(.sub-menu)>.menu-group-title{direction:rtl!important;text-align:right!important;order:2!important}' +
+        '.nav-menu li:has(.sub-menu)>.mobile-submenu-toggle,.navbar li:has(.sub-menu)>.mobile-submenu-toggle,nav li:has(.sub-menu)>.mobile-submenu-toggle{display:flex!important;position:static!important;flex:0 0 48px!important;order:2!important;width:48px!important;height:44px!important;min-height:44px!important;align-items:center!important;justify-content:center!important;z-index:5!important;pointer-events:auto!important;margin:0!important;padding:0!important;background:transparent!important;border:none!important}' +
+        'html[dir="rtl"] .nav-menu li:has(.sub-menu)>.mobile-submenu-toggle,body[dir="rtl"] .nav-menu li:has(.sub-menu)>.mobile-submenu-toggle,html[dir="rtl"] .navbar li:has(.sub-menu)>.mobile-submenu-toggle,body[dir="rtl"] .navbar li:has(.sub-menu)>.mobile-submenu-toggle,html[dir="rtl"] nav li:has(.sub-menu)>.mobile-submenu-toggle,body[dir="rtl"] nav li:has(.sub-menu)>.mobile-submenu-toggle{order:1!important}' +
+        '.nav-menu li:has(.sub-menu)>.sub-menu,.navbar li:has(.sub-menu)>.sub-menu,nav li:has(.sub-menu)>.sub-menu{order:3!important;flex:0 0 100%!important;width:100%!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;margin:0!important;transform:none!important;left:auto!important;right:auto!important;inset-inline-start:auto!important;inset-inline-end:auto!important}' +
+        '.nav-menu .sub-menu.mobile-expanded,.navbar .sub-menu.mobile-expanded,nav .sub-menu.mobile-expanded{padding:8px 0!important}' +
+        '.sub-menu a,.sub-menu .menu-group-title{display:block!important;width:100%!important;white-space:normal!important;overflow-wrap:anywhere!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;padding:10px 8px!important}' +
+        '.zappy-products-dropdown>.sub-menu .zappy-nav-parent>a,.zappy-products-dropdown>.sub-menu .zappy-nav-parent>.menu-group-title{font-weight:700!important}' +
+        '.zappy-products-dropdown>.sub-menu .zappy-nav-child>a,.zappy-products-dropdown>.sub-menu .zappy-nav-child>.menu-group-title{padding-left:36px!important;padding-right:16px!important;font-size:.94em!important;opacity:.85!important}' +
+        'html[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>a,body[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>a,html[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>.menu-group-title,body[dir="rtl"] .zappy-products-dropdown>.sub-menu .zappy-nav-child>.menu-group-title{padding-left:16px!important;padding-right:36px!important}' +
       '}';
     (document.head || document.documentElement).appendChild(style);
   }
 
   function patch() {
     ensureRuntimeCssInjected();
+    installMobileMenuRefreshHooks();
     patchLinks(document);
     ensureProductsChevron();
     ensureMobileSubmenuToggles();
@@ -4600,4 +4850,27 @@ window.onload = function() {
   }).observe(document.documentElement, { childList: true, subtree: true });
   setTimeout(patch, 250);
   setTimeout(patch, 1500);
+})();
+
+/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_RUNTIME */
+/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_RUNTIME_V2 */
+(function(){
+  try {
+    function injectMobileNavIconAlignmentFix() {
+      if (document.getElementById('zappy-mobile-nav-icon-alignment-fix')) return;
+      var style = document.createElement('style');
+      style.id = 'zappy-mobile-nav-icon-alignment-fix';
+      style.textContent = "\n\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX */\n/* ZAPPY_MOBILE_NAV_ICON_ALIGNMENT_FIX_V2 */\n/* The mobile hamburger / phone buttons are absolutely positioned. Keep the\n   navbar itself as a non-collapsing containing block so auto-margin centering\n   stays aligned even when generated mobile CSS moves every nav child out of flow. */\n@media (max-width: 768px) {\n  .navbar,\n  nav.navbar {\n    min-height: 70px !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle,\n  .navbar > .phone-header-btn,\n  nav.navbar > .phone-header-btn,\n  .navbar .phone-header-btn,\n  nav.navbar .phone-header-btn {\n    position: absolute !important;\n    top: 0 !important;\n    bottom: 0 !important;\n    transform: none !important;\n    margin-top: auto !important;\n    margin-bottom: auto !important;\n    align-self: center !important;\n    align-items: center !important;\n    justify-content: center !important;\n    line-height: 0 !important;\n  }\n\n  .navbar > .mobile-toggle,\n  nav.navbar > .mobile-toggle,\n  .navbar .mobile-toggle,\n  nav.navbar .mobile-toggle,\n  #mobileToggle {\n    display: flex !important;\n  }\n\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar > .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) .navbar .phone-header-btn,\n  html:not([data-zappy-site-type=\"ecommerce\"]) nav.navbar .phone-header-btn {\n    display: flex !important;\n  }\n\n  html[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  body[data-zappy-site-type=\"ecommerce\"] .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] header .phone-header-btn,\n  html[data-zappy-site-type=\"ecommerce\"] nav .phone-header-btn {\n    display: none !important;\n    visibility: hidden !important;\n    width: 0 !important;\n    height: 0 !important;\n    min-width: 0 !important;\n    overflow: hidden !important;\n  }\n}\n";
+      document.head.appendChild(style);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', injectMobileNavIconAlignmentFix);
+    } else {
+      injectMobileNavIconAlignmentFix();
+    }
+    window.addEventListener('load', injectMobileNavIconAlignmentFix);
+    setTimeout(injectMobileNavIconAlignmentFix, 250);
+    setTimeout(injectMobileNavIconAlignmentFix, 1000);
+  } catch (e) {}
 })();
