@@ -245,6 +245,479 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
     <!-- Mickidum Accessibility Toolbar -->
     <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+
+<style data-zappy-section-v2-css="true">
+/* V2 Regenerated Section CSS */
+.index-process-section {
+  position: relative;
+  overflow: visible;
+  background-color: var(--primary);
+  background-image:
+    radial-gradient(ellipse at 80% 10%, rgba(20, 184, 166, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(13, 148, 136, 0.10) 0%, transparent 50%),
+    linear-gradient(160deg, #1E3A3A 0%, #16324F 100%);
+  color: var(--text-light);
+  padding: 100px 20px 80px;
+  direction: rtl;
+  font-family: 'Inter', 'Manrope', sans-serif;
+}
+
+/* Background decorative dots */
+.index-process-section__bg-dots {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
+  width: 340px;
+  height: 340px;
+  background-image: radial-gradient(circle, rgba(250,250,247,0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 0 0 0 100%;
+}
+
+.index-process-section__bg-glow {
+  position: absolute;
+  inset-inline-start: 5%;
+  bottom: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Container */
+.index-process-section__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  direction: rtl;
+}
+
+/* ===================== CONTENT COLUMN ===================== */
+.index-process-section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.index-process-section__label-row {
+  margin-bottom: 16px;
+}
+
+.index-process-section__label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 4px 14px;
+  border: 1px solid rgba(20,184,166,0.4);
+  border-radius: 100px;
+  background: rgba(20,184,166,0.08);
+}
+
+.index-process-section__heading {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-light);
+  margin: 0 0 10px 0;
+  text-align: right;
+}
+
+.index-process-section__heading-accent {
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+}
+
+.index-process-section__intro {
+  color: rgba(250,250,247,0.78);
+  line-height: 1.75;
+  margin: 0 0 36px 0;
+  text-align: right;
+  max-width: 480px;
+}
+
+/* Steps */
+.index-process-section__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 36px;
+}
+
+.index-process-section__step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  align-items: start;
+  direction: rtl;
+}
+
+.index-process-section__step-num {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  padding-top: 4px;
+  text-align: right;
+  opacity: 0.85;
+}
+
+.index-process-section__step-body {
+  padding-bottom: 4px;
+}
+
+.index-process-section__step-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0 0 8px 0;
+  text-align: right;
+  line-height: 1.3;
+}
+
+.index-process-section__step-text {
+  color: rgba(250,250,247,0.72);
+  line-height: 1.7;
+  margin: 0;
+  text-align: right;
+}
+
+.index-process-section__step-connector {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(to bottom, rgba(20,184,166,0.5), rgba(20,184,166,0.15));
+  margin-inline-start: 25px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* Meta bar */
+.index-process-section__meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  direction: rtl;
+}
+
+.index-process-section__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(250,250,247,0.7);
+  white-space: nowrap;
+}
+
+.index-process-section__meta-item .fa-video {
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+
+.index-process-section__meta-sep {
+  color: rgba(250,250,247,0.3);
+  font-size: 0.75rem;
+}
+
+/* ===================== SCHEDULE COLUMN ===================== */
+.index-process-section__schedule-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Image wrapper */
+.index-process-section__image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 56px rgba(0,0,0,0.35);
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.index-process-section__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+.index-process-section__image-badge {
+  position: absolute;
+  bottom: 16px;
+  inset-inline-end: 16px;
+  background: rgba(22, 50, 79, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(20,184,166,0.4);
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.index-process-section__badge-num {
+  display: block;
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.index-process-section__badge-sub {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(250,250,247,0.65);
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+/* Schedule panel */
+.index-process-section__schedule {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 24px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.index-process-section__schedule-header {
+  margin-bottom: 20px;
+}
+
+.index-process-section__schedule-title-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+/* Vertical thread line */
+.index-process-section__thread {
+  position: absolute;
+  top: 68px;
+  bottom: 28px;
+  inset-inline-end: 43px;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(20,184,166,0.5) 0%, rgba(20,184,166,0.1) 100%);
+  border-radius: 2px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Calendar cards */
+.index-process-section__cal-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 16px;
+  align-items: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-inline-end: 3px solid var(--secondary);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+  z-index: 1;
+  direction: rtl;
+}
+
+.index-process-section__cal-card:last-child {
+  margin-bottom: 0;
+}
+
+.index-process-section__cal-card--featured {
+  background: rgba(20,184,166,0.1);
+  border-color: rgba(255,255,255,0.18);
+  border-inline-end-color: var(--accent);
+  box-shadow: 0 4px 24px rgba(20,184,166,0.15);
+}
+
+.index-process-section__cal-card:hover {
+  background: rgba(255,255,255,0.09);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+
+/* Dot on thread */
+.index-process-section__cal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--secondary);
+  border: 2px solid rgba(22,50,79,0.9);
+  flex-shrink: 0;
+  align-self: center;
+  justify-self: center;
+  z-index: 2;
+}
+
+.index-process-section__cal-dot--featured {
+  background: var(--accent);
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 8px rgba(20,184,166,0.6);
+}
+
+.index-process-section__cal-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.index-process-section__cal-day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.index-process-section__cal-day {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+}
+
+.index-process-section__cal-time {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(20,184,166,0.12);
+  padding: 2px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.index-process-section__cal-session {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(250,250,247,0.45);
+}
+
+.index-process-section__cal-topic {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(250,250,247,0.88);
+  line-height: 1.4;
+  text-align: right;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .index-process-section__container {
+    gap: 40px;
+  }
+
+  .index-process-section__heading {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-process-section {
+    padding: 100px 16px 60px;
+  }
+
+  .index-process-section__container {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .index-process-section__heading {
+    font-size: 1.9rem;
+  }
+
+  .index-process-section__intro {
+    max-width: 100%;
+  }
+
+  .index-process-section__bg-dots {
+    width: 200px;
+    height: 200px;
+  }
+
+  .index-process-section__thread {
+    display: none;
+  }
+
+  .index-process-section__cal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .index-process-section__cal-dot {
+    display: none;
+  }
+
+  .index-process-section__image-wrapper {
+    height: 200px;
+  }
+
+  .index-process-section__meta-bar {
+    gap: 6px;
+    padding: 12px 14px;
+  }
+
+  .index-process-section__meta-sep {
+    display: none;
+  }
+
+  .index-process-section__meta-item {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .index-process-section__heading {
+    font-size: 1.65rem;
+  }
+
+  .index-process-section__step {
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+  }
+
+  .index-process-section__step-num {
+    font-size: 1.6rem;
+  }
+}
+
+/* ZAPPY_POSTGEN_GUARD_RTL_GRID:בית-process — swapped 1 grid column definition(s) for RTL */
+
+</style>
     <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-dropdown-submenu-styles">
@@ -848,7 +1321,7 @@
           <p class="index-benefits-card-text" style="font-family: &quot;Black Ops One&quot;, sans-serif !important;">כל אימון ניהולי מתוכנן לדיוק: שיעור ממוקד אחד, תובנה אחת מיידית ליישום. אין בזבוז זמן, אין חומר עודף — רק תוכן שמנהל עסוק יכול לספוג ולהפעיל עוד באותו יום.</p>
         </div>
         <div class="index-benefits-card-image-wrap" style="font-family: &quot;Black Ops One&quot;, sans-serif !important;">
-          <img data-placeholder="index-benefits-image-1" data-context="A focused executive at a clean desk glancing at a watch or timer, conveying time-efficiency and disciplined short learning sessions. Minimal, bright, editorial style with navy and teal tones." width="400" height="220" src="/assets/site-index-benefits-image-1.webp" alt="אימון ניהולי קצר וממוקד" data-element-type="image" data-element-id="img-1779014431428-ps7qivgsj" style="">
+          <img data-placeholder="index-benefits-image-1" data-context="A focused executive at a clean desk glancing at a watch or timer, conveying time-efficiency and disciplined short learning sessions. Minimal, bright, editorial style with navy and teal tones." width="400" height="220" src="/assets/site-index-benefits-image-1.webp" alt="אימון ניהולי קצר וממוקד" data-element-type="image" data-element-id="img-1779014431428-ps7qivgsj" >
         </div>
       </article>
 
@@ -870,7 +1343,7 @@
           <p class="index-benefits-card-text" style="font-family: &quot;Black Ops One&quot;, sans-serif !important;">בדיוק כמו אימון גופני, הצמיחה הניהולית מגיעה מחזרתיות. שלושה מפגשי זום קצרים בשבוע יוצרים קצב קבוע שמשנה את אופן החשיבה וקבלת ההחלטות לאורך זמן — בלי לשבש את לוח הזמנים.</p>
         </div>
         <div class="index-benefits-card-image-wrap" style="font-family: &quot;Black Ops One&quot;, sans-serif !important;">
-          <img data-placeholder="index-benefits-image-2" data-context="A clean weekly calendar or planner with three recurring sessions marked, representing disciplined consistent management training schedule. Light editorial style, navy and teal color accents." width="400" height="220" src="/assets/site-index-benefits-image-2.webp" alt="לוח אימונים ניהולי שבועי עקבי" data-element-type="image" data-element-id="img-1779014431428-nqzwlzma3" style="">
+          <img data-placeholder="index-benefits-image-2" data-context="A clean weekly calendar or planner with three recurring sessions marked, representing disciplined consistent management training schedule. Light editorial style, navy and teal color accents." width="400" height="220" src="/assets/site-index-benefits-image-2.webp" alt="לוח אימונים ניהולי שבועי עקבי" data-element-type="image" data-element-id="img-1779014431428-nqzwlzma3" >
         </div>
       </article>
 
@@ -890,7 +1363,7 @@
           <p class="index-benefits-card-text" style="font-family: &quot;Black Ops One&quot;, sans-serif !important;">מנהיגות, גיוס עובדים, תמחור, שיווק, תפעול, ומכירות — כל שבוע נושא חדש, כל אימון זווית חדשה. זה&nbsp;<strong style="font-family: &quot;Black Ops One&quot;, sans-serif !important;">קורס ניהול קצר למנהלים</strong> שמכסה את כל מה שמנהל צריך לדעת, בפורמט נח, גמיש וזמין.</p>
         </div>
         <div class="index-benefits-card-image-wrap" style="font-family: &quot;Black Ops One&quot;, sans-serif !important;">
-          <img data-placeholder="index-benefits-image-3" data-context="A visual mind-map or elegant grid of management topics like leadership, marketing, operations, HR — suggesting broad curriculum coverage. Clean, minimal, editorial style with navy typography and teal highlights." width="400" height="220" src="/assets/site-index-benefits-image-3.webp" alt="מגוון תחומי ניהול בתוכנית" data-element-type="image" data-element-id="img-1779014431428-k6to8exbv" style="">
+          <img data-placeholder="index-benefits-image-3" data-context="A visual mind-map or elegant grid of management topics like leadership, marketing, operations, HR — suggesting broad curriculum coverage. Clean, minimal, editorial style with navy typography and teal highlights." width="400" height="220" src="/assets/site-index-benefits-image-3.webp" alt="מגוון תחומי ניהול בתוכנית" data-element-type="image" data-element-id="img-1779014431428-k6to8exbv" >
         </div>
       </article>
 
@@ -928,123 +1401,145 @@
 
 </section>
 
-<section class="index-process-section" data-layout-spec="בית-process" dir="rtl" id="index-process-section">
-  <div class="index-process-container" style="font-family: Lato, sans-serif !important;">
+<section class="index-process-section" data-layout-spec="בית-process" dir="rtl" data-zappy-section="true" id="index-process-section">
+  <!-- Background decorative elements -->
+  <div class="index-process-section__bg-dots" aria-hidden="true"></div>
+  <div class="index-process-section__bg-glow" aria-hidden="true"></div>
 
-    <!-- START COLUMN: Content -->
-    <div class="index-process-content" style="font-family: Lato, sans-serif !important;">
-      <div class="index-process-label" style="font-family: Lato, sans-serif !important;">השיטה שלנו</div>
-      <h2 class="index-process-heading" style="font-family: Lato, sans-serif !important;">איך עובד מודל<br>האימון השבועי?</h2>
-      <div class="index-process-accent-line" aria-hidden="true" style="font-family: Lato, sans-serif !important;"></div>
-      <p class="index-process-description" style="font-family: Lato, sans-serif !important;">שלושה אימונים קצרים בשבוע — כל אחד כ-30 דקות בלבד — בנויים כך שתוכלו לספוג ידע ניהולי מעשי, לחזק הרגלים ולהחיל אותם מיד בשטח. כמו כל תוכנית כושר, הקסם נמצא בעקביות ובחזרה.</p>
+  <div class="index-process-section__container">
 
-      <div class="index-process-steps" style="font-family: Lato, sans-serif !important;">
+    <!-- Right column: text + steps -->
+    <div class="index-process-section__content">
 
-        <div class="index-process-step" data-grid-item-index="0" style="font-family: Lato, sans-serif !important;">
-          <div class="index-process-step-marker" style="font-family: Lato, sans-serif !important;">
-            <p style="font-family: Lato, sans-serif !important;"><span class="index-process-step-number" style="font-family: Lato, sans-serif !important;">01</span>
-            </p><div class="index-process-step-line" aria-hidden="true" style="font-family: Lato, sans-serif !important;"></div>
-          </div>
-          <div class="index-process-step-body" style="font-family: Lato, sans-serif !important;">
-            <h3 class="index-process-step-title" style="font-family: Lato, sans-serif !important;">מצטרפים ומתחברים</h3>
-            <p class="index-process-step-text" style="color: rgb(22, 50, 79) !important; font-family: Lato, sans-serif !important;">נכנסים לזום בזמן הנוח לכם — ללא נסיעות, ללא עלויות נוספות. כל מה שצריך הוא חיבור אינטרנט וחצי שעה פנויה בלוח הזמנים. כמובן שאפשר לצפות במועד מאוחר יותר כשנח לכם - כל השיעורים מוקלטים ועולים לאוויר.</p>
-          </div>
-        </div>
+      <div class="index-process-section__label-row">
+        <span class="index-process-section__label">השיטה שלנו</span>
+      </div>
 
-        <div class="index-process-step" data-grid-item-index="1" style="font-family: Lato, sans-serif !important;">
-          <div class="index-process-step-marker" style="font-family: Lato, sans-serif !important;">
-            <p style="font-family: Lato, sans-serif !important;"><span class="index-process-step-number" style="font-family: Lato, sans-serif !important;">02</span>
-            </p><div class="index-process-step-line" aria-hidden="true" style="font-family: Lato, sans-serif !important;"></div>
-          </div>
-          <div class="index-process-step-body" style="font-family: Lato, sans-serif !important;">
-            <h3 class="index-process-step-title" style="font-family: Lato, sans-serif !important;">לומדים ומתמקדים</h3>
-            <p class="index-process-step-text" style="color: rgb(22, 50, 79) !important; font-family: Lato, sans-serif !important;">כל אימון מכסה נושא ניהולי ממוקד אחד — מתקשורת ומשוב ועד קבלת החלטות, ניהול זמן ובניית תרבות ארגונית. תכנים מגוונים ורלוונטיים לכל מנכ"ל ובעל עסק.</p>
+      <h2 class="index-process-section__heading">איך עובד מודל<br>האימון השבועי?</h2>
+
+      <div class="index-process-section__heading-accent" aria-hidden="true"></div>
+
+      <p class="index-process-section__intro">שלושה אימונים קצרים בשבוע — כל אחד כ-30 דקות בלבד — בנויים כך שתוכלו לספוג ידע ניהולי מעשי, לחזק הרגלים ולהחיל אותם מיד בשטח. כמו כל תוכנית כושר, הקסם נמצא בעקביות ובחזרה.</p>
+
+      <!-- Steps -->
+      <div class="index-process-section__steps">
+
+        <div class="index-process-section__step">
+          <div class="index-process-section__step-num">01</div>
+          <div class="index-process-section__step-body">
+            <h3 class="index-process-section__step-title">מצטרפים ומתחברים</h3>
+            <p class="index-process-section__step-text">נכנסים לזום בזמן הנוח לכם — ללא נסיעות, ללא עלויות נוספות. כל מה שצריך הוא חיבור אינטרנט וחצי שעה פנויה בלוח הזמנים. כמובן שאפשר לצפות במועד מאוחר יותר כשנח לכם - כל השיעורים מוקלטים ועולים לאוויר.</p>
           </div>
         </div>
 
-        <div class="index-process-step" data-grid-item-index="2" style="font-family: Lato, sans-serif !important;">
-          <div class="index-process-step-marker" style="font-family: Lato, sans-serif !important;">
-            <span class="index-process-step-number" style="font-family: Lato, sans-serif !important;">03</span>
+        <div class="index-process-section__step-connector" aria-hidden="true"></div>
+
+        <div class="index-process-section__step">
+          <div class="index-process-section__step-num">02</div>
+          <div class="index-process-section__step-body">
+            <h3 class="index-process-section__step-title">לומדים ומתמקדים</h3>
+            <p class="index-process-section__step-text">כל אימון מכסה נושא ניהולי ממוקד אחד — מתקשורת ומשוב ועד קבלת החלטות, ניהול זמן ובניית תרבות ארגונית. תכנים מגוונים ורלוונטיים לכל מנכ"ל ובעל עסק.</p>
           </div>
-          <div class="index-process-step-body" style="font-family: Lato, sans-serif !important;">
-            <h3 class="index-process-step-title" style="font-family: Lato, sans-serif !important;">מיישמים בשטח</h3>
-            <p class="index-process-step-text" style="color: rgb(22, 50, 79) !important; font-family: Lato, sans-serif !important;">כל שיעור מסתיים עם כלי מעשי אחד שניתן ליישם כבר ביום למחרת. הידע לא נשאר בתיאוריה — הוא הופך לשינוי אמיתי בדרך הניהול שלכם.</p>
+        </div>
+
+        <div class="index-process-section__step-connector" aria-hidden="true"></div>
+
+        <div class="index-process-section__step">
+          <div class="index-process-section__step-num">03</div>
+          <div class="index-process-section__step-body">
+            <h3 class="index-process-section__step-title">מיישמים בשטח</h3>
+            <p class="index-process-section__step-text">כל שיעור מסתיים עם כלי מעשי אחד שניתן ליישם כבר ביום למחרת. הידע לא נשאר בתיאוריה — הוא הופך לשינוי אמיתי בדרך הניהול שלכם.</p>
           </div>
         </div>
 
       </div>
+      <!-- /steps -->
 
-      <p class="index-process-note" style="color: rgb(22, 50, 79) !important; font-family: Lato, sans-serif !important;">
-        <i class="fa-solid fa-video" aria-hidden="true" data-element-type="icon" data-element-id="icon-1778776433899-ot2zvdh9i" data-icon-type="fontawesome" style="font-family: Lato, sans-serif !important; cursor: pointer;"></i>
-        מתקיים בזום · שלוש פעמים בשבוע · כ-30 דקות לאימון · נושאים מתחלפים בכל שבוע
-      </p>
-    </div>
-
-    <!-- END COLUMN: Visual Roadmap -->
-    <div class="index-process-visual" style="font-family: Lato, sans-serif !important;">
-
-      <!-- Backplate decorative element -->
-      <div class="index-process-backplate" aria-hidden="true" style="font-family: Lato, sans-serif !important;"></div>
-
-      <!-- Three session cards connected by lines -->
-      <div class="index-process-roadmap" style="font-family: Lato, sans-serif !important;">
-
-        <div class="index-process-session-card" style="font-family: Lato, sans-serif !important;">
-          <div class="index-process-session-header" style="font-family: Lato, sans-serif !important;">
-            <div class="index-process-session-dot" aria-hidden="true" style="font-family: Lato, sans-serif !important;"></div>
-            <p style="font-family: Lato, sans-serif !important;"><span class="index-process-session-tag" style="color: rgb(22, 50, 79) !important; font-family: Lato, sans-serif !important;">אימון א׳</span>
-          </p></div>
-          <div class="index-process-session-day" style="font-family: Lato, sans-serif !important;">ראשון</div>
-          <div class="index-process-session-time" style="font-family: Lato, sans-serif !important;">07:00 – 07:20</div>
-          <div class="index-process-session-topic" style="font-family: Lato, sans-serif !important;">מיומנויות תקשורת ניהולית</div>
-          <div class="index-process-session-connector" aria-hidden="true" style="font-family: Lato, sans-serif !important;">
-            <span class="index-process-connector-dot" style="font-family: Lato, sans-serif !important;"></span>
-          </div>
-        </div>
-
-        <div class="index-process-session-card index-process-session-card--mid" style="font-family: Lato, sans-serif !important;">
-          <div class="index-process-session-header" style="font-family: Lato, sans-serif !important;">
-            <div class="index-process-session-dot" aria-hidden="true" style="font-family: Lato, sans-serif !important;"></div>
-            <p style="font-family: Lato, sans-serif !important;"><span class="index-process-session-tag" style="color: rgb(22, 50, 79) !important; font-family: Lato, sans-serif !important;">אימון ב׳</span>
-          </p></div>
-          <div class="index-process-session-day" style="font-family: Lato, sans-serif !important;">שלישי</div>
-          <div class="index-process-session-time" style="font-family: Lato, sans-serif !important;">07:00 – 07:20</div>
-          <div class="index-process-session-topic" style="font-family: Lato, sans-serif !important;">קבלת החלטות ופתרון בעיות</div>
-          <div class="index-process-session-connector" aria-hidden="true" style="font-family: Lato, sans-serif !important;">
-            <span class="index-process-connector-dot" style="font-family: Lato, sans-serif !important;"></span>
-          </div>
-        </div>
-
-        <div class="index-process-session-card" style="font-family: Lato, sans-serif !important;">
-          <div class="index-process-session-header" style="font-family: Lato, sans-serif !important;">
-            <div class="index-process-session-dot" aria-hidden="true" style="font-family: Lato, sans-serif !important;"></div>
-            <p style="font-family: Lato, sans-serif !important;"><span class="index-process-session-tag" style="color: rgb(22, 50, 79) !important; font-family: Lato, sans-serif !important;">אימון ג׳</span>
-          </p></div>
-          <div class="index-process-session-day" style="font-family: Lato, sans-serif !important;">חמישי</div>
-          <div class="index-process-session-time" style="font-family: Lato, sans-serif !important;">07:00 – 07:20</div>
-          <div class="index-process-session-topic" style="font-family: Lato, sans-serif !important;">מנהיגות ובניית צוות</div>
-        </div>
-
-      </div>
-
-      <!-- Supporting image -->
-      <div class="index-process-image-wrap" style="font-family: Lato, sans-serif !important;">
-        <img data-placeholder="index-process-image-1" data-context="Professional executive coach conducting an online management training session via Zoom, laptop screen showing a video call, clean modern home office setup, focused business owner taking notes, premium editorial photography style, warm natural light" width="600" height="400" src="/assets/site-index-process-image-1.webp" alt="מנכ&quot;ל משתתף באימון ניהולי מקוון בזום" data-element-type="image" data-element-id="img-1778776433901-tqm107myg" style="">
-        <div class="index-process-image-badge" style="font-family: Lato, sans-serif !important;">
-          <i class="fa-solid fa-dumbbell" aria-hidden="true" data-element-type="icon" data-element-id="icon-1778776433899-gw20nac4h" data-icon-type="fontawesome" style="font-family: Lato, sans-serif !important;"></i>
-          <span style="font-family: Lato, sans-serif !important;">×3 בשבוע</span>
-        </div>
+      <div class="index-process-section__meta-bar">
+        <span class="index-process-section__meta-item">
+          <i class="fa-solid fa-video" aria-hidden="true"></i>
+          מתקיים בזום
+        </span>
+        <span class="index-process-section__meta-sep" aria-hidden="true">·</span>
+        <span class="index-process-section__meta-item">שלוש פעמים בשבוע</span>
+        <span class="index-process-section__meta-sep" aria-hidden="true">·</span>
+        <span class="index-process-section__meta-item">כ-30 דקות לאימון</span>
+        <span class="index-process-section__meta-sep" aria-hidden="true">·</span>
+        <span class="index-process-section__meta-item">נושאים מתחלפים בכל שבוע</span>
       </div>
 
     </div>
-  </div>
+    <!-- /content -->
 
-  <!-- Bottom divider: gradient fade from light stone into deep navy -->
-  <div class="index-process-divider-wrapper" style="font-family: Lato, sans-serif !important;">
-    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,90 L0,45 Q150,20 300,38 T600,28 Q800,18 1000,35 T1200,30 L1200,90 Z" fill="#1E3A3A"></path>
-    </svg>
+    <!-- Left column: schedule visual -->
+    <div class="index-process-section__schedule-col">
+
+      <!-- Image block -->
+      <div class="index-process-section__image-wrapper">
+        <img alt="מנכ&quot;ל משתתף באימון ניהולי מקוון בזום" class="index-process-section__image" src="/assets/site-index-process-image-1.webp" data-placeholder="index-process-image-1" data-context="Professional executive coach conducting an online management training session via Zoom, laptop screen showing a video call, clean modern home office setup, focused business owner taking notes, premium editorial photography style, warm natural light" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+        <div class="index-process-section__image-badge">
+          <span class="index-process-section__badge-num">×3 בשבוע</span>
+          <span class="index-process-section__badge-sub">אימונים ניהוליים</span>
+        </div>
+      </div>
+
+      <!-- Weekly schedule cards -->
+      <div class="index-process-section__schedule">
+
+        <div class="index-process-section__schedule-header">
+          <span class="index-process-section__schedule-title-label">לוח האימונים השבועי</span>
+        </div>
+
+        <!-- Thread line -->
+        <div class="index-process-section__thread" aria-hidden="true"></div>
+
+        <!-- Card 1 -->
+        <div class="index-process-section__cal-card">
+          <div class="index-process-section__cal-dot" aria-hidden="true"></div>
+          <div class="index-process-section__cal-inner">
+            <div class="index-process-section__cal-day-row">
+              <span class="index-process-section__cal-day">ראשון</span>
+              <span class="index-process-section__cal-time">07:00 – 07:20</span>
+            </div>
+            <div class="index-process-section__cal-session">אימון א׳</div>
+            <div class="index-process-section__cal-topic">מיומנויות תקשורת ניהולית</div>
+          </div>
+        </div>
+
+        <!-- Card 2 (featured) -->
+        <div class="index-process-section__cal-card index-process-section__cal-card--featured">
+          <div class="index-process-section__cal-dot index-process-section__cal-dot--featured" aria-hidden="true"></div>
+          <div class="index-process-section__cal-inner">
+            <div class="index-process-section__cal-day-row">
+              <span class="index-process-section__cal-day">שלישי</span>
+              <span class="index-process-section__cal-time">07:00 – 07:20</span>
+            </div>
+            <div class="index-process-section__cal-session">אימון ב׳</div>
+            <div class="index-process-section__cal-topic">קבלת החלטות ופתרון בעיות</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="index-process-section__cal-card">
+          <div class="index-process-section__cal-dot" aria-hidden="true"></div>
+          <div class="index-process-section__cal-inner">
+            <div class="index-process-section__cal-day-row">
+              <span class="index-process-section__cal-day">חמישי</span>
+              <span class="index-process-section__cal-time">07:00 – 07:20</span>
+            </div>
+            <div class="index-process-section__cal-session">אימון ג׳</div>
+            <div class="index-process-section__cal-topic">מנהיגות ובניית צוות</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /schedule -->
+
+    </div>
+    <!-- /schedule-col -->
+
   </div>
+  <!-- /container -->
 
 </section>
 
