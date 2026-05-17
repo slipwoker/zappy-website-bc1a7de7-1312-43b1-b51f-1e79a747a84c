@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 /* Self-hosted fonts (Inter + Rubik for multi-language support) */
 
@@ -187,12 +187,12 @@
   --text-color: #4a4a4a;
   --text-secondary-color: #707070;
 
-  --heading-font: 'Bebas Neue', sans-serif;
-  --font-heading: 'Bebas Neue', sans-serif;
-  --body-font: 'Black Ops One', sans-serif;
-  --font-family: 'Black Ops One', sans-serif;
-  --font-primary: 'Black Ops One', sans-serif;
-  --font-body: 'Black Ops One', sans-serif;}
+  --heading-font: 'Lato', sans-serif;
+  --font-heading: 'Lato', sans-serif;
+  --body-font: 'Lato', sans-serif;
+  --font-family: 'Lato', sans-serif;
+  --font-primary: 'Lato', sans-serif;
+  --font-body: 'Lato', sans-serif;}
 
 *,
 *::before,
@@ -214,7 +214,7 @@ html {
 body {
   font-size: 16px !important;
   line-height: 1.7 !important;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: var(--text-dark);
   background-color: var(--bg-light);
   -webkit-font-smoothing: antialiased;
@@ -223,7 +223,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: var(--text-dark);
   font-weight: 700;
 }
@@ -281,7 +281,7 @@ p {
   font-weight: 400 !important;
   line-height: 1.7 !important;
   margin-bottom: 1rem !important;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 small,
@@ -292,7 +292,7 @@ small,
 }
 
 span, div, li, td, th, label, input, textarea, select, button {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 a {
@@ -335,7 +335,7 @@ table {
 
 input, textarea, select, button {
   font-size: 16px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   border: none;
   outline: none;
   background: none;
@@ -383,7 +383,7 @@ html[dir="ltr"] blockquote {
 }
 
 code, pre {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 14px;
   background: rgba(22,50,79,0.06);
   border-radius: var(--radius-sm);
@@ -435,7 +435,7 @@ pre {
   text-transform: none;
   transition: var(--transition-hover);
   font-size: 16px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   cursor: pointer;
   text-decoration: none;
   border: 2px solid transparent;
@@ -1521,7 +1521,7 @@ html[lang="ar"] .nav-right-group .nav-menu {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   display: inline-flex;
@@ -2202,7 +2202,7 @@ main { margin-top: 0 !important; padding-top: 0 !important; }
 
   background-color: var(--bg-dark);
   color: var(--text-light);
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   direction: rtl;
   width: 100%;
   box-sizing: border-box;
@@ -2684,7 +2684,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   align-items: center;
   flex-direction: row;
   gap: 8px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -2704,7 +2704,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* H1 */
 .index-hero-section .index-hero-h1 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
   line-height: 1.18;
@@ -2716,7 +2716,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* H3 Subtitle */
 .index-hero-section .index-hero-h3 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
@@ -2730,7 +2730,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* Body paragraph */
 .index-hero-section .index-hero-body {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.75;
   color: var(--text-dark);
@@ -2754,7 +2754,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   color: #FFFFFF;
   padding: 13px 28px;
   border-radius: 6px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -2777,7 +2777,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   color: var(--primary);
   padding: 13px 28px;
   border-radius: 6px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -2908,7 +2908,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-benefits-section .index-benefits-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -2927,7 +2927,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-benefits-section .index-benefits-subtext {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -2985,7 +2985,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-benefits-section .index-benefits-card-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -2995,7 +2995,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-benefits-section .index-benefits-card-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -3044,7 +3044,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-benefits-section .index-benefits-strip-metric {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.2;
@@ -3054,7 +3054,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-benefits-section .index-benefits-strip-label {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
   color: var(--text-muted);
@@ -3184,7 +3184,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 .index-process-section .index-process-label {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -3194,7 +3194,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.25;
@@ -3213,7 +3213,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-description {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -3253,7 +3253,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   height: 40px;
   background: var(--primary);
   color: var(--text-light);
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -3274,7 +3274,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-step-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.3;
@@ -3284,7 +3284,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-step-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -3299,7 +3299,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   align-items: center;
   gap: 10px;
   flex-direction: row;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--text-muted);
@@ -3390,7 +3390,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-session-tag {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -3399,7 +3399,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-session-day {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-dark);
@@ -3408,7 +3408,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-session-time {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
   color: var(--text-muted);
   margin-bottom: 8px;
@@ -3417,7 +3417,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-process-section .index-process-session-topic {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--primary);
@@ -3469,7 +3469,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   gap: 8px;
   background: var(--primary);
   color: var(--text-light);
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   padding: 8px 14px;
@@ -3586,7 +3586,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 .index-testimonials-section .index-testimonials-eyebrow {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -3596,7 +3596,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-testimonials-section .index-testimonials-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -3614,7 +3614,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-testimonials-section .index-testimonials-intro {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 250, 247, 0.78);
@@ -3665,7 +3665,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   transform: translateX(50%);
   background: var(--accent);
   color: #1E3A3A;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -3686,7 +3686,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* ── Quote mark ── */
 .index-testimonials-section .index-testimonials-quote-mark {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 3.5rem;
   line-height: 1;
   color: var(--accent);
@@ -3698,7 +3698,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* ── Quote text ── */
 .index-testimonials-section .index-testimonials-quote {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 250, 247, 0.90);
@@ -3727,7 +3727,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-testimonials-section .index-testimonials-author-role {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.4;
@@ -3737,7 +3737,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-testimonials-section .index-testimonials-impact {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
   line-height: 1.5;
   color: var(--secondary);
@@ -3768,7 +3768,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-testimonials-section .index-testimonials-trust-label {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -3796,7 +3796,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   color: rgba(250, 250, 247, 0.80);
@@ -3936,7 +3936,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-cta-section .index-cta-rhythm {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -3948,7 +3948,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-cta-section .index-cta-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.3;
@@ -3959,7 +3959,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .index-cta-section .index-cta-body {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -3981,7 +3981,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   color: #FFFFFF;
   padding: 13px 36px;
   border-radius: 6px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -4006,7 +4006,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   color: var(--primary);
   padding: 8px 4px;
   border-radius: 0;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -4098,7 +4098,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -4116,7 +4116,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-intro-section .program-intro-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -4125,7 +4125,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-intro-section .program-intro-desc {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -4175,7 +4175,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-intro-section .pillar-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -4184,7 +4184,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-intro-section .pillar-desc {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -4344,7 +4344,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 .program-features-section .program-features-eyebrow {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -4354,7 +4354,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-features-section .program-features-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -4372,7 +4372,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-features-section .program-features-subtitle {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -4440,7 +4440,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-features-section .program-feature-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -4450,7 +4450,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-features-section .program-feature-desc {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -4567,7 +4567,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-topics-section .program-topics-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -4591,7 +4591,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-topics-section .program-topics-header-sub p {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -4646,7 +4646,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* ── Number ── */
 .program-topics-section .program-topic-number {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2.25rem;
   font-weight: 700;
   line-height: 1;
@@ -4663,7 +4663,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* ── Tile Title ── */
 .program-topics-section .program-topic-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -4674,7 +4674,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* ── Tile Description ── */
 .program-topics-section .program-topic-desc {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -4686,7 +4686,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 /* ── Tag ── */
 .program-topics-section .program-topic-tag {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -4800,7 +4800,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 .program-audience-section .program-audience-label {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -4810,7 +4810,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-audience-section .program-audience-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -4833,7 +4833,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-audience-section .program-audience-lead {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(250,250,247,0.82);
@@ -4896,7 +4896,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   transform: translateX(50%);
   background: var(--accent);
   color: var(--text-dark);
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -4927,7 +4927,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-audience-section .program-audience-panel-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -4937,7 +4937,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-audience-section .program-audience-panel-desc {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(250,250,247,0.75);
@@ -4960,7 +4960,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   flex-direction: row;
   align-items: flex-start;
   gap: 10px;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   line-height: 1.6;
   color: rgba(250,250,247,0.72);
@@ -5102,7 +5102,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 .program-cta-section .program-cta-eyebrow {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -5112,7 +5112,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-cta-section .program-cta-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.3;
@@ -5123,7 +5123,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .program-cta-section .program-cta-body {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -5136,7 +5136,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   display: inline-block;
   background: var(--primary);
   color: var(--text-light);
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -5222,7 +5222,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-story-section .about-story-h1 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -5232,7 +5232,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-story-section .about-story-intro-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -5274,7 +5274,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-story-section .about-story-h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -5284,7 +5284,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-story-section .about-story-text-block p {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -5335,7 +5335,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-story-section .about-story-stone-label {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--primary);
@@ -5345,7 +5345,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-story-section .about-story-stone-sub {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--text-muted);
@@ -5458,7 +5458,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-principles-section .about-principles-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -5476,7 +5476,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-principles-section .about-principles-subtitle {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -5519,7 +5519,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* Number */
 .about-principles-section .about-principles-card-number {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1;
@@ -5540,7 +5540,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* Card title */
 .about-principles-section .about-principles-card-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -5551,7 +5551,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* Card text */
 .about-principles-section .about-principles-card-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -5712,7 +5712,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-methodology-section .step-number {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1;
@@ -5733,7 +5733,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-methodology-section .step-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -5743,7 +5743,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-methodology-section .step-desc {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--text-muted);
@@ -5770,7 +5770,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-methodology-section .methodology-label {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -5781,7 +5781,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-methodology-section .methodology-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -5800,7 +5800,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-methodology-section .methodology-body {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   line-height: 1.7;
   color: var(--text-muted);
   margin: 0 0 16px 0;
@@ -5928,7 +5928,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -5945,7 +5945,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-subtitle {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 250, 247, 0.78);
@@ -5999,7 +5999,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-quote-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.8;
   color: rgba(250, 250, 247, 0.90);
@@ -6027,7 +6027,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-reviewer-name {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--text-light);
@@ -6035,7 +6035,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-reviewer-role {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   color: rgba(250, 250, 247, 0.55);
   line-height: 1.5;
@@ -6086,7 +6086,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-stat-number {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
   line-height: 1;
@@ -6095,7 +6095,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-stat-label {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
   color: rgba(250, 250, 247, 0.75);
@@ -6112,7 +6112,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-reviews-section .about-reviews-proof-summary {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 250, 247, 0.75);
@@ -6223,7 +6223,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-contact-bridge-section .about-cb-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -6242,7 +6242,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-contact-bridge-section .about-cb-lead {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -6255,7 +6255,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   display: inline-block;
   background: var(--secondary);
   color: var(--text-light);
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -6318,7 +6318,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-contact-bridge-section .about-cb-reassurance-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -6328,7 +6328,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .about-contact-bridge-section .about-cb-reassurance-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -6396,7 +6396,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 /* ── Text Column ── */
 .contact-contact-intro-section .contact-intro-label {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -6407,7 +6407,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .contact-intro-h1 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -6417,7 +6417,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .contact-intro-lead {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -6461,7 +6461,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .expectation-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -6471,7 +6471,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .expectation-desc {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -6501,7 +6501,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .card-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -6511,7 +6511,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .card-promise {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -6546,7 +6546,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .contact-detail-link {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   color: var(--primary);
   text-decoration: none;
@@ -6560,7 +6560,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .contact-detail-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   color: var(--text-dark);
   line-height: 1.5;
@@ -6593,7 +6593,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .promise-badge span {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -6606,7 +6606,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-intro-section .promise-text {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-dark);
@@ -6737,7 +6737,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-form-section .ccf-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -6755,7 +6755,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-form-section .ccf-subtitle {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -6813,7 +6813,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-form-section .ccf-label {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-dark);
@@ -6822,7 +6822,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-form-section .ccf-input {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.5;
   color: var(--text-dark);
@@ -6881,7 +6881,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-form-section .privacy-consent-label span {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--text-muted);
@@ -6905,7 +6905,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-contact-form-section .ccf-btn-primary {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -7009,7 +7009,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-faq-section .contact-faq-title {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
@@ -7027,7 +7027,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-faq-section .contact-faq-subtitle {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -7098,7 +7098,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-faq-section .contact-faq-question {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.4;
@@ -7108,7 +7108,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-faq-section .contact-faq-answer {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -7215,7 +7215,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 .contact-cta-section .contact-cta-eyebrow {
   display: inline-block;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -7236,7 +7236,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-cta-section .contact-cta-heading {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.3;
@@ -7247,7 +7247,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 }
 
 .contact-cta-section .contact-cta-body {
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 250, 247, 0.82);
@@ -7262,7 +7262,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   display: inline-block;
   background: var(--accent);
   color: #1E3A3A;
-  font-family: 'Black Ops One', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -7312,7 +7312,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
 
 /* Global font override - exclude icon fonts and special elements */
 *:not(.fas):not(.far):not(.fab):not(.fa):not([class*="fa-"]):not(.iconify):not([class*="icon"]):not(code):not(pre):not(i[class*="fa"]) {
-  font-family: 'Black Ops One', sans-serif !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 
