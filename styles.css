@@ -8452,6 +8452,11 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
 .index-hero-section .index-hero-price-badge__register {
   color: var(--background-color) !important;
 }
+
+.index-hero-section .index-hero-price-badge {
+  left: 60px !important;
+  right: auto !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
