@@ -8466,6 +8466,11 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
 .index-hero-section .index-hero-price-badge {
   border: 2px solid rgba(255, 255, 255, 0.8) !important;
 }
+
+.index-hero-section .index-hero-price-badge {
+  outline: 2px solid rgba(255, 255, 255, 0.85) !important;
+  outline-offset: 0px !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
