@@ -8412,6 +8412,46 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
   margin-top: 6px !important;
   letter-spacing: 0.04em !important;
 }
+
+.index-hero-section .index-hero-price-badge__price {
+  color: var(--background-color) !important;
+  font-size: 1.9rem !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+}
+
+.index-hero-section .index-hero-price-badge__period {
+  color: rgba(255,255,255,0.75) !important;
+  font-size: 0.82rem !important;
+}
+
+.index-hero-section .index-hero-price-badge__sub {
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 0.72rem !important;
+}
+
+.index-hero-section .index-hero-price-badge__register {
+  color: var(--background-color) !important;
+  font-weight: 900 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 8px !important;
+  padding-top: 6px !important;
+  border-top: 1px solid rgba(255,255,255,0.35) !important;
+  text-decoration: underline !important;
+}
+
+.index-hero-section .index-hero-price-badge {
+  bottom: 120px !important;
+  left: 20px !important;
+  width: 140px !important;
+  min-height: 140px !important;
+  padding: 16px 14px !important;
+}
+
+.index-hero-section .index-hero-price-badge__register {
+  color: var(--background-color) !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
