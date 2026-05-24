@@ -8350,6 +8350,29 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
   border-top: 1px solid rgba(20,184,166,0.35) !important;
   padding-top: 6px !important;
 }
+
+.index-hero-section .index-hero-price-badge {
+  position: absolute !important;
+  bottom: 100px !important;
+  inset-inline-start: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(13, 148, 136, 0.92) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 2px solid rgba(20, 184, 166, 0.6) !important;
+  border-radius: 50% !important;
+  width: 120px !important;
+  height: 120px !important;
+  padding: 0 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28) !important;
+  text-decoration: none !important;
+  z-index: 10 !important;
+  gap: 1px !important;
+  left: auto !important;
+  right: auto !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
