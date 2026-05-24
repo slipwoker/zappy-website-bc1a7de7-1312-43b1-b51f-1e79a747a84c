@@ -8373,6 +8373,45 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
   left: auto !important;
   right: auto !important;
 }
+
+.index-hero-section .index-hero-price-badge {
+  inset-inline-start: 20px !important;
+  inset-inline-end: auto !important;
+  right: auto !important;
+  left: 20px !important;
+  min-width: 120px !important;
+  width: auto !important;
+  padding: 14px 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+.index-hero-section .index-hero-price-badge__price {
+  font-size: 1.6rem !important;
+  line-height: 1.2 !important;
+  display: block !important;
+}
+
+.index-hero-section .index-hero-price-badge__period {
+  font-size: 0.8rem !important;
+  display: block !important;
+}
+
+.index-hero-section .index-hero-price-badge__sub {
+  font-size: 0.7rem !important;
+  display: block !important;
+}
+
+.index-hero-section .index-hero-price-badge__register {
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  display: block !important;
+  margin-top: 6px !important;
+  letter-spacing: 0.04em !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
