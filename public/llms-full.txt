@@ -2,13 +2,13 @@
 
 Executive Gym (חדר כושר ניהולי) is an online management training program delivered via Zoom, designed for CEOs and business owners who want to sharpen their leadership and management skills. The concept mirrors a physical gym but for the mind — short, focused 15-20 minute 'workout' sessions, three times a week, covering a variety of management topics. The brand blends fitness culture with professional development, making executive education accessible, consistent, and time-efficient.
 
-Source: https://example.com
+Source: https://chadar-kosher-nihuli.zappy5.app
 
 ---
 
 ## חדר כושר ניהולי — חדר כושר ניהולי
 
-URL: https://example.com
+URL: https://chadar-kosher-nihuli.zappy5.app
 Description: Executive Gym (חדר כושר ניהולי) is an online management training program delivered via Zoom, designed for CEOs and business owners who want to sharpen their lea
 
 חדר כושר ניהולי — חדר כושר ניהולי
@@ -561,7 +561,7 @@ Description: Executive Gym (חדר כושר ניהולי) is an online managemen
 
 ## תוכנית — חדר כושר ניהולי
 
-URL: https://example.com/program
+URL: https://chadar-kosher-nihuli.zappy5.app/program
 Description: תוכנית | חדר כושר ניהולי. חדר כושר ניהולי
 
 תוכנית — חדר כושר ניהולי
@@ -1111,7 +1111,7 @@ Execution
 
 ## אודות — חדר כושר ניהולי
 
-URL: https://example.com/about
+URL: https://chadar-kosher-nihuli.zappy5.app/about
 Description: אודות | חדר כושר ניהולי. חדר כושר ניהולי
 
 אודות — חדר כושר ניהולי
@@ -1661,7 +1661,7 @@ Description: אודות | חדר כושר ניהולי. חדר כושר ניהו
 
 ## צור קשר — חדר כושר ניהולי
 
-URL: https://example.com/contact
+URL: https://chadar-kosher-nihuli.zappy5.app/contact
 Description: צור קשר | חדר כושר ניהולי. חדר כושר ניהולי
 
 צור קשר — חדר כושר ניהולי
@@ -2103,7 +2103,7 @@ Description: צור קשר | חדר כושר ניהולי. חדר כושר ני�
 
 ## מדיניות פרטיות
 
-URL: https://example.com/privacy
+URL: https://chadar-kosher-nihuli.zappy5.app/privacy
 Description: מדיניות הפרטיות שלנו - כיצד אנו אוספים, משתמשים ומגנים על המידע שלכם
 
 מדיניות פרטיות
@@ -2367,7 +2367,7 @@ Description: מדיניות הפרטיות שלנו - כיצד אנו אוספי
 
 ## הצהרת נגישות
 
-URL: https://example.com/accessibility
+URL: https://chadar-kosher-nihuli.zappy5.app/accessibility
 Description: הצהרת הנגישות שלנו - מחויבותנו לנגישות דיגיטלית
 
 הצהרת נגישות
@@ -2640,7 +2640,7 @@ Description: הצהרת הנגישות שלנו - מחויבותנו לנגיש�
 
 ## תנאי שימוש
 
-URL: https://example.com/terms
+URL: https://chadar-kosher-nihuli.zappy5.app/terms
 Description: תנאי השימוש באתר - הזכויות והחובות של המשתמשים
 
 תנאי שימוש
