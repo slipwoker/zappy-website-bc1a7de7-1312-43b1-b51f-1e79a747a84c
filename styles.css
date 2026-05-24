@@ -8471,64 +8471,6 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
   outline: 2px solid rgba(255, 255, 255, 0.85) !important;
   outline-offset: 0px !important;
 }
-
-.nav-price-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-image: linear-gradient(135deg, rgb(50, 87, 108), rgb(62, 63, 65)) !important;
-  outline: 2px solid rgba(255, 255, 255, 0.85);
-  outline-offset: 0px;
-  text-decoration: none;
-  color: var(--background-color) !important;
-  line-height: 1.2;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  flex-shrink: 0;
-}
-
-.nav-price-badge:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
-
-.nav-price-badge__price {
-  display: block;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--background-color) !important;
-}
-
-.nav-price-badge__period {
-  display: block;
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.85) !important;
-}
-
-.nav-price-badge__sub {
-  display: block;
-  font-size: 0.6rem;
-  color: rgba(255,255,255,0.7) !important;
-}
-
-.nav-price-badge__register {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--background-color) !important;
-  text-decoration: underline;
-}
-
-.navbar .nav-cta-container {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
