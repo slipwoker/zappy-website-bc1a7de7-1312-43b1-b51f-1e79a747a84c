@@ -8317,6 +8317,39 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
   font-size: 1.4rem;
 }
 }
+
+.index-hero-section .index-hero-price-badge {
+  padding: 18px 22px !important;
+  min-width: 130px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 2.5px rgba(20,184,166,0.6) !important;
+  bottom: 160px !important;
+}
+
+.index-hero-section .index-hero-price-badge__price {
+  font-size: 2.4rem !important;
+  font-weight: 800 !important;
+}
+
+.index-hero-section .index-hero-price-badge__period {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
+
+.index-hero-section .index-hero-price-badge__sub {
+  font-size: 0.75rem !important;
+}
+
+.index-hero-section .index-hero-price-badge__register {
+  display: block !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+  margin-top: 8px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border-top: 1px solid rgba(20,184,166,0.35) !important;
+  padding-top: 6px !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
