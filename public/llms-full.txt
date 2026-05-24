@@ -95,10 +95,6 @@ Description: Executive Gym (חדר כושר ניהולי) is an online managemen
 
 
 
-## תוכנית אימונים ניהולית בזום
-
-
-
 # חדר כושר ניהולי —חדד את מיומנויות הניהול שלך
 
 
@@ -114,6 +110,8 @@ Description: Executive Gym (חדר כושר ניהולי) is an online managemen
 צרו קשר עכשיו
 לפרטי התוכנית
 
+
+## תוכנית אימונים ניהולית בזום
 
 
 
