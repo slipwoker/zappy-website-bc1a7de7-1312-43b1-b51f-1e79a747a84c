@@ -7,33 +7,33 @@
 ## Pages
 
 ### בית
-https://chadar-kosher-nihuli.zappy5.app
+https://fitmanagement.co.il
 Executive Gym (חדר כושר ניהולי) is an online management training program delivered via Zoom, designed for CEOs and business owners who want to sharpen their lea
 
 ### תוכנית
-https://chadar-kosher-nihuli.zappy5.app/program
+https://fitmanagement.co.il/program
 תוכנית | חדר כושר ניהולי. חדר כושר ניהולי
 
 ### אודות
-https://chadar-kosher-nihuli.zappy5.app/about
+https://fitmanagement.co.il/about
 אודות | חדר כושר ניהולי. חדר כושר ניהולי
 
 ### צור קשר
-https://chadar-kosher-nihuli.zappy5.app/contact
+https://fitmanagement.co.il/contact
 צור קשר | חדר כושר ניהולי. חדר כושר ניהולי
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://chadar-kosher-nihuli.zappy5.app/privacy
+https://fitmanagement.co.il/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://chadar-kosher-nihuli.zappy5.app/terms
+https://fitmanagement.co.il/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://chadar-kosher-nihuli.zappy5.app/accessibility
+https://fitmanagement.co.il/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -46,8 +46,8 @@ Information about WCAG compliance and accessibility features.
 - Address: תוצרת הארץ 3 , BSR CITY, פתח תקווה
 
 ### Contact form
-- URL: https://chadar-kosher-nihuli.zappy5.app/contact
-- Endpoint: https://chadar-kosher-nihuli.zappy5.app/api/email/contact-form
+- URL: https://fitmanagement.co.il/contact
+- Endpoint: https://fitmanagement.co.il/api/email/contact-form
 - Method: POST
 - Content-Type: application/json
 - Fields:
@@ -76,6 +76,6 @@ Executive Gym (חדר כושר ניהולי) is an online management training pr
 
 # Machine-readable feeds
 
-- Sitemap (XML): https://chadar-kosher-nihuli.zappy5.app/sitemap.xml
-- Robots: https://chadar-kosher-nihuli.zappy5.app/robots.txt
-- Flattened page text (for LLMs): https://chadar-kosher-nihuli.zappy5.app/llms-full.txt
+- Sitemap (XML): https://fitmanagement.co.il/sitemap.xml
+- Robots: https://fitmanagement.co.il/robots.txt
+- Flattened page text (for LLMs): https://fitmanagement.co.il/llms-full.txt
