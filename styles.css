@@ -8261,6 +8261,62 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
 .index-testimonials-section .index-testimonials-header h3 span {
   color: var(--text-light) !important;
 }
+
+.index-hero-section .index-hero-price-badge {
+  position: absolute;
+  top: 100px;
+  inset-inline-end: 32px;
+  z-index: 20;
+  background: rgba(22, 50, 79, 0.92);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(20, 184, 166, 0.6);
+  border-radius: 50px;
+  padding: 14px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  min-width: 110px;
+  text-align: center;
+}
+
+.index-hero-section .index-hero-price-badge__price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+  direction: ltr;
+}
+
+.index-hero-section .index-hero-price-badge__period {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #FAFAF7;
+  line-height: 1.2;
+  font-family: 'Inter', sans-serif;
+}
+
+.index-hero-section .index-hero-price-badge__sub {
+  font-size: 0.72rem;
+  color: rgba(250, 250, 247, 0.65);
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+.index-hero-section .index-hero-price-badge {
+  top: 80px;
+  inset-inline-end: 16px;
+  padding: 10px 16px;
+  min-width: 90px;
+}
+
+.index-hero-section .index-hero-price-badge__price {
+  font-size: 1.4rem;
+}
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
